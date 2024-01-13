@@ -11,3 +11,20 @@ class Location(object):
         return self.x
     def getY(self):
         return self.y
+    
+    def distFrom(self, other):
+        xDist = self.x - other.getX()
+        yDist = self.y - other.getY()
+        return (xDist**2 + yDist**2)**0.5
+    
+    def __str__(self):
+        return '<' + str(self.x) + ', ' + str(self.y) + '>'
+    
+class Drunk(object):
+    def __init__(self, name = None):
+        self.name = name
+
+    def __str__(self):
+        if self != None:
+            return self.name
+        return 'Anonymous'
