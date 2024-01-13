@@ -40,3 +40,18 @@ class MasochistDrunk(Drunk):
     def takeStep(self):
         stepChoices = [(0.0, 1.1), (0.0, -0.9), (1.0, 0.0), (-1.0, 0.0)]
         return random.choice(stepChoices)
+    
+class Field(object):
+    def __init__(self):
+        self.drunks = {}
+
+    def addDrunk(self, drunk, loc):
+        if drunk in self.drunks:
+            raise ValueError('Duplicate drunk')
+        else:
+            self.drunks[drunk] = loc
+    
+    def getLoc(self, drunk):
+        if drunk not in self.drunks:
+            raise ValueError('Drunk not in field')
+        return self.drunks[drunk]
