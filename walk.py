@@ -55,3 +55,10 @@ class Field(object):
         if drunk not in self.drunks:
             raise ValueError('Drunk not in field')
         return self.drunks[drunk]
+    
+    def moveDrunk(self, drunk):
+        if drunk not in self.drunks:
+            raise ValueError('Drunk not in field')
+        xDist, yDist = drunk.takeStep()
+        #Using move method in Location
+        self.drunks[drunk] = self.drunks[drunk].move(xDist, yDist)
