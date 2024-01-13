@@ -1,3 +1,5 @@
+import random
+
 class Location(object):
     def __init__(self, x, y):
         self.x = x
@@ -28,3 +30,13 @@ class Drunk(object):
         if self != None:
             return self.name
         return 'Anonymous'
+
+class UsualDrunk(Drunk):
+    def takeStep(self):
+        stepChoices = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        return random.choice(stepChoices)
+    
+class MasochistDrunk(Drunk):
+    def takeStep(self):
+        stepChoices = [(0.0, 1.1), (0.0, -0.9), (1.0, 0.0), (-1.0, 0.0)]
+        return random.choice(stepChoices)
